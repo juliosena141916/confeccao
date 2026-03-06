@@ -6,6 +6,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\FornecedoresController;
 use App\Http\Controllers\PedidosController;
+use App\Http\Controllers\Produto2Controller;
 
 
 Route::get('/', function () {
@@ -16,6 +17,7 @@ Route::get('/clientes', [ClienteController::class, 'index'])->name('clientes.ind
 Route::get('/estoque', [EstoqueController::class, 'index'])->name('estoque.index');
 Route::get('/fornecedores', [FornecedoresController::class, 'index'])->name('fornecedores.index');
 Route::get('/pedidos', [PedidosController::class, 'index'])->name('pedidos.index');
+Route::get('/produto2', [Produto2Controller::class, 'index'])->name('produto2.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
