@@ -32,5 +32,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Confeccao Julio',
         //     'email' => 'confeccao@exemplo.com.br',
         // ]);
+
+        \App\Models\Pedidos::factory(10)->create();
+        \App\Models\Fornecedores::factory(10)->create();
+        \App\Models\Estoque::factory(10)->create();
+
     }
 }

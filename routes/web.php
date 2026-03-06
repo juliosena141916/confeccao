@@ -3,12 +3,19 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\EstoqueController;
+use App\Http\Controllers\FornecedoresController;
+use App\Http\Controllers\PedidosController;
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/clientes', [ClienteController::class, 'index'])->name('clientes.index');
+Route::get('/estoque', [EstoqueController::class, 'index'])->name('estoque.index');
+Route::get('/fornecedores', [FornecedoresController::class, 'index'])->name('fornecedores.index');
+Route::get('/pedidos', [PedidosController::class, 'index'])->name('pedidos.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
