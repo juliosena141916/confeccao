@@ -20,7 +20,7 @@ class ClientesFactory extends Factory
             'nome' => fake()->name(),
             'cpf' => fake()->numerify('###########'),
             'telefone' => fake()->phoneNumber(),
-            'reserva' => fake()->randomNumber(),
+            'reserva' => fake()->sentence(),
         ];
     }
 }
