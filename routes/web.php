@@ -19,20 +19,40 @@ Route::get('/fornecedores', [FornecedoresController::class, 'index'])->name('for
 Route::get('/pedidos', [PedidosController::class, 'index'])->name('pedidos.index');
 Route::get('/produto2', [Produto2Controller::class, 'index'])->name('produto2.index');
 
-route::get('/Clientes/create', [ClienteController::class, 'create'])->name('clientes.create');
-route::post('/Clientes', [ClienteController::class, 'store'])->name('clientes.store');
+// route::get('/clientes/create', [ClienteController::class, 'create'])->name('clientes.create');
+// route::get('/clientes/edit', [ClienteController::class, 'edit'])->name('clientes.edit');
+// route::get('/clientes/update', [ClienteController::class, 'update'])->name('clientes.update');
+// route::get('/clientes/destroy', [ClienteController::class, 'destroy'])->name('clientes.destroy');
+// route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.store');
+Route::resource('clientes', ClienteController::class);
 
 route::get('/Estoque/create', [EstoqueController::class, 'create'])->name('estoque.create');
+
 route::post('/Estoque', [EstoqueController::class, 'store'])->name('estoque.store');
 
+
 route::get('/Fornecedores/create', [FornecedoresController::class, 'create'])->name('fornecedores.create');
+
 route::post('/Fornecedores', [FornecedoresController::class, 'store'])->name('fornecedores.store');
 
+
 route::get('/Pedidos/create', [PedidosController::class, 'create'])->name('pedidos.create');
+
 route::post('/Pedidos', [PedidosController::class, 'store'])->name('pedidos.store');
 
+
 route::get('/Produto2/create', [Produto2Controller::class, 'create'])->name('produto2.create');
+
 route::post('/Produto2', [Produto2Controller::class, 'store'])->name('produto2.store');
+
+
+// route::resources([
+//     'clientes' => ClienteController::class,
+//     'estoque' => EstoqueController::class,
+//     'fornecedores' => FornecedoresController::class,
+//     'pedidos' => PedidosController::class,
+//     'produto2' => Produto2Controller::class,
+// ]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

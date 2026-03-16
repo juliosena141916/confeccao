@@ -17,6 +17,7 @@ class ClientesFactory extends Factory
     public function definition(): array
     {
         return [
+            'id' => fake()->randomNumber(4,false),
             'nome' => fake()->name(),
             'cpf' => fake()->numerify('###########'),
             'telefone' => fake()->phoneNumber(),

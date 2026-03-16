@@ -21,8 +21,6 @@ class ClienteController extends Controller
         $request->validate([
             'nome' => 'required|string|max:255',
             'cpf' => 'required|string|unique:clientes',
-            // 'email' => 'required|email|unique:clientes',
-            // 'endereco' => 'nullable|string',
             'reserva' => 'required|string',
             'telefone' => 'required|string',
         ]);
@@ -30,5 +28,26 @@ class ClienteController extends Controller
         Clientes::create($request->all());
 
         return redirect()->route('clientes.index')->with('success', 'Cliente cadastrado com sucesso!');
+    }
+
+    public function edit(Clientes $cliente){
+        return view('clientes.edit', compact('cliente'));
+    }
+
+    public function update(Request $request, Clientes $cliente){
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'cpf' => 'required|string|unique:clientes,cpf,' . $cliente->id,
+            'reserva' => 'required|string',
+            'telefone' => 'required|string',
+        ]);
+
+        $cliente->update($request->only(['nome', 'cpf', 'reserva', 'telefone']));
+        return redirect()->route('clientes.index')->with('success', 'Cliente atualizado!');
+    }
+
+    public function destroy(Clientes $cliente){
+        $cliente->delete();
+        return redirect()->route('clientes.index')->with('success', 'Cliente removido!');
     }
 }

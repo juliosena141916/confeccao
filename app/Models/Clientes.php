@@ -11,5 +11,5 @@ class Clientes extends Model
 
     use HasFactory, Notifiable;
 
-    protected $fillable = ['nome', 'cpf', 'telefone', 'reserva'];
+    protected $fillable = ['nome', 'cpf', 'reserva', 'telefone'];
 }
